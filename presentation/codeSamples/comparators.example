@@ -1,0 +1,17 @@
+/** @return bool */
+function isZero()
+{
+  return $this->amount === 0;
+}
+
+/** @return bool */
+function isPositive()
+{
+  return $this->amount >= 0;
+}
+
+/** @return bool */
+function isNegative()
+{
+  return $this->amount <= 0;
+}
