@@ -18,7 +18,7 @@ module.exports = {
       background: colors.primary,
       fontFamily: fonts.primary,
       fontWeight: "normal",
-      fontSize: "2em",
+      fontSize: "2rem",
       color: colors.secondary,
       overflow: "hidden"
     },
@@ -114,7 +114,7 @@ module.exports = {
       paddingLeft: 40,
       display: "block",
       color: colors.primary,
-      fontSize: "4.9em",
+      fontSize: "4.9rem",
       lineHeight: 1,
       fontWeight: "bold"
     },
@@ -122,8 +122,8 @@ module.exports = {
       color: colors.tertiary,
       display: "block",
       clear: "left",
-      fontSize: "2em",
-      marginTop: "1em"
+      fontSize: "2rem",
+      marginTop: "1rem"
     },
     content: {
       margin: "auto",
@@ -132,7 +132,7 @@ module.exports = {
     codePane: {
       pre: {
         margin: "auto",
-        fontSize: "1em",
+        fontSize: "1rem",
         fontWeight: "normal",
         fontFamily: fonts.tertiary,
         minWidth: "100%",
@@ -147,7 +147,7 @@ module.exports = {
     heading: {
       h1: {
         color: colors.tertiary,
-        fontSize: "7.05em",
+        fontSize: "7.05rem",
         fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -156,7 +156,7 @@ module.exports = {
       },
       h2: {
         color: colors.secondary,
-        fontSize: "5.88em",
+        fontSize: "5.88rem",
         fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -164,7 +164,7 @@ module.exports = {
       },
       h3: {
         color: "black",
-        fontSize: "4.9em",
+        fontSize: "4.9rem",
         fontFamily: fonts.secondary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -172,7 +172,7 @@ module.exports = {
       },
       h4: {
         color: "black",
-        fontSize: "3.82em",
+        fontSize: "3.82rem",
         fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -180,7 +180,7 @@ module.exports = {
       },
       h5: {
         color: "black",
-        fontSize: "3.19em",
+        fontSize: "3.19rem",
         fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -188,7 +188,7 @@ module.exports = {
       },
       h6: {
         color: "black",
-        fontSize: "2.66em",
+        fontSize: "2.66rem",
         fontFamily: fonts.primary,
         lineHeight: 1,
         fontWeight: "bold",
@@ -203,7 +203,7 @@ module.exports = {
       textDecoration: "none"
     },
     listItem: {
-      fontSize: "2.66em"
+      fontSize: "2.66rem"
     },
     list: {
       textAlign: "left",
@@ -211,12 +211,12 @@ module.exports = {
       padding: 0
     },
     tableHeaderItem: {
-      fontSize: "2.66em",
+      fontSize: "2.66rem",
       fontWeight: "bold",
       padding: "0 10px"
     },
     tableItem: {
-      fontSize: "2.66em",
+      fontSize: "2.66rem",
       padding: "0 10px"
     },
     table: {
@@ -227,7 +227,7 @@ module.exports = {
     },
     text: {
       color: "black",
-      fontSize: "2.66em",
+      fontSize: "2.66rem",
       fontFamily: fonts.primary,
       margin: "0.25em auto"
     }
