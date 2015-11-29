@@ -3,6 +3,7 @@ import {Heading, Layout, Text, Appear, List, ListItem, CodePane, Code, Fill, Lin
   Table, TableRow, TableHeaderItem, TableItem
 } from "../src/spectacle";
 import Slide from "./slide";
+import ShortList from "./shortList";
 
 export class Introduction extends Slide {
   contents() {

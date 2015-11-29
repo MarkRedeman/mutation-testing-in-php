@@ -174,7 +174,7 @@ export default class extends React.Component {
           bgDarken="0.75"
         >
           <BlockQuote>
-            <Quote>I have not failed. I've just found 10,000 ways ways that won't work</Quote>
+            <Quote>I have not failed. I've just found 10,000 ways that won't work</Quote>
             <Cite>Thomas Edison</Cite>
           </BlockQuote>
         </Slide>

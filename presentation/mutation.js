@@ -236,12 +236,6 @@ export class Metrics extends Slide {
           <div><strong>Mutation Code Coverage:</strong><Text> percentage of mutants covered by tests</Text></div>,
           <div><strong>Covered Code MSI:</strong><Text> percentage of killed mutants that were coverd by tests</Text></div>
         ]} />
-
-        <List>
-          <ListItem><strong>Mutation Score Indicator (MSI):</strong> percentage of mutants covered &amp; killed by tests</ListItem>
-          <ListItem><strong>Mutation Code Coverage:</strong> percentage of mutants covered by tests</ListItem>
-          <ListItem><strong>Covered Code MSI:</strong> percentage of killed mutants that were coverd by tests</ListItem>
-        </List>
         <Appear>
           <CodePane lang="php" source={require("raw!./codeSamples/metrics.example")} margin="20px auto"/>
         </Appear>
@@ -277,23 +271,6 @@ export class MetricsExample extends Slide {
             <strong>47%</strong> of all mutations were detected versus <strong>65%</strong> line coverage.
           </Text>
         </Appear>
-      </div>
-    );
-  }
-}
-
-export class Issues extends Slide {
-  contents() {
-    return (
-      <div>
-        <Heading size={1} caps textColor="black" fit>
-          Configuration issues
-        </Heading>
-        <Text>Currently humbug isn't stable</Text>
-        <List>
-          <ListItem>`phpunit` location</ListItem>
-          <ListItem>Only support for phpunit</ListItem>
-        </List>
       </div>
     );
   }
