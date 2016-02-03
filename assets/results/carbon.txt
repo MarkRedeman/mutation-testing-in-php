@@ -1,0 +1,624 @@
+Humbug running test suite to generate logs and code coverage data...
+Humbug has completed the initial test run successfully.
+Tests: 639 Line Coverage: 61.24%
+Humbug is analysing source files...
+Mutation Testing is commencing on 49 files...
+(.: killed, M: escaped, S: uncovered, E: fatal error, T: timed out)
+.............M.....M..........................E......EE..... |   60 ( 0/49)
+...........E..........M.M.M.M.M.M.M.....E........E.......... |  120 ( 1/49)
+.................................EEE..E.......MMM........... |  180 ( 1/49)
+......................................................MM.... |  240 ( 1/49)
+............................................................ |  300 ( 1/49)
+.................M............
+330 mutations were generated:
+     305 mutants were killed
+       0 mutants were not covered by tests
+      15 covered mutants were not detected
+      10 fatal errors were encountered
+       0 time outs were encountered
+
+Metrics:
+    Mutation Score Indicator (MSI): 95%
+    Mutation Code Coverage: 100%
+    Covered Code MSI: 95%
+
+Remember that some mutants will inevitably be harmless (i.e. false positives).
+Time: 2.08 minutes Memory: 25.50MB
+Humbug results are being logged as TEXT to: humbuglog.txt
+------
+Escapes
+------
+
+
+1) \Humbug\Mutator\ConditionalBoundary\GreaterThan
+Diff on \Carbon\CarbonInterval::__construct() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+         $specDays = 0;
+-        $specDays += $weeks > 0 ? $weeks * Carbon::DAYS_PER_WEEK : 0;
++        $specDays += $weeks >= 0 ? $weeks * Carbon::DAYS_PER_WEEK : 0;
+         $specDays += $days > 0 ? $days : 0;
+
+         $spec .= ($specDays > 0) ? $specDays.static::PERIOD_DAYS : '';
+
+         if ($hours > 0 || $minutes > 0 || $seconds > 0) {
+             $spec .= static::PERIOD_TIME_PREFIX;
+
+
+2) \Humbug\Mutator\ConditionalBoundary\GreaterThan
+Diff on \Carbon\CarbonInterval::__construct() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+         $specDays += $weeks > 0 ? $weeks * Carbon::DAYS_PER_WEEK : 0;
+-        $specDays += $days > 0 ? $days : 0;
++        $specDays += $days >= 0 ? $days : 0;
+
+         $spec .= ($specDays > 0) ? $specDays.static::PERIOD_DAYS : '';
+
+         if ($hours > 0 || $minutes > 0 || $seconds > 0) {
+             $spec .= static::PERIOD_TIME_PREFIX;
+             $spec .= $hours > 0 ? $hours.static::PERIOD_HOURS : '';
+
+
+3) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+         if (static::wasCreatedFromDiff($interval)) {
+-            $this->dayz = $this->dayz + ($interval->days * $sign);
++            $this->dayz = $this->dayz + ($interval->days / $sign);
+         } else {
+             $this->years = $this->years + ($interval->y * $sign);
+             $this->months = $this->months + ($interval->m * $sign);
+             $this->dayz = $this->dayz + ($interval->d * $sign);
+             $this->hours = $this->hours + ($interval->h * $sign);
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+
+
+4) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+         } else {
+-            $this->years = $this->years + ($interval->y * $sign);
++            $this->years = $this->years + ($interval->y / $sign);
+             $this->months = $this->months + ($interval->m * $sign);
+             $this->dayz = $this->dayz + ($interval->d * $sign);
+             $this->hours = $this->hours + ($interval->h * $sign);
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+             $this->seconds = $this->seconds + ($interval->s * $sign);
+         }
+
+
+5) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             $this->years = $this->years + ($interval->y * $sign);
+-            $this->months = $this->months + ($interval->m * $sign);
++            $this->months = $this->months + ($interval->m / $sign);
+             $this->dayz = $this->dayz + ($interval->d * $sign);
+             $this->hours = $this->hours + ($interval->h * $sign);
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+             $this->seconds = $this->seconds + ($interval->s * $sign);
+         }
+
+
+
+6) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             $this->months = $this->months + ($interval->m * $sign);
+-            $this->dayz = $this->dayz + ($interval->d * $sign);
++            $this->dayz = $this->dayz + ($interval->d / $sign);
+             $this->hours = $this->hours + ($interval->h * $sign);
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+             $this->seconds = $this->seconds + ($interval->s * $sign);
+         }
+
+         return $this;
+
+
+7) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             $this->dayz = $this->dayz + ($interval->d * $sign);
+-            $this->hours = $this->hours + ($interval->h * $sign);
++            $this->hours = $this->hours + ($interval->h / $sign);
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+             $this->seconds = $this->seconds + ($interval->s * $sign);
+         }
+
+         return $this;
+     }
+
+
+8) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             $this->hours = $this->hours + ($interval->h * $sign);
+-            $this->minutes = $this->minutes + ($interval->i * $sign);
++            $this->minutes = $this->minutes + ($interval->i / $sign);
+             $this->seconds = $this->seconds + ($interval->s * $sign);
+         }
+
+         return $this;
+     }
+ }
+
+
+9) \Humbug\Mutator\Arithmetic\Multiplication
+Diff on \Carbon\CarbonInterval::add() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             $this->minutes = $this->minutes + ($interval->i * $sign);
+-            $this->seconds = $this->seconds + ($interval->s * $sign);
++            $this->seconds = $this->seconds + ($interval->s / $sign);
+         }
+
+         return $this;
+     }
+ }
+
+
+
+10) \Humbug\Mutator\Number\IntegerValue
+Diff on \Carbon\Carbon::formatLocalized() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+         // modifier correctly
+-        if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
++        if (strtoupper(substr(PHP_OS, 1, 3)) == 'WIN') {
+             $format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $format);
+         }
+
+         return strftime($format, strtotime($this));
+     }
+
+
+
+11) \Humbug\Mutator\Number\IntegerValue
+Diff on \Carbon\Carbon::formatLocalized() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+         // modifier correctly
+-        if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
++        if (strtoupper(substr(PHP_OS, 0, 4)) == 'WIN') {
+             $format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $format);
+         }
+
+         return strftime($format, strtotime($this));
+     }
+
+
+
+12) \Humbug\Mutator\ConditionalNegation\Equal
+Diff on \Carbon\Carbon::formatLocalized() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+         // modifier correctly
+-        if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
++        if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN') {
+             $format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $format);
+         }
+
+         return strftime($format, strtotime($this));
+     }
+
+
+
+13) \Humbug\Mutator\Boolean\FalseValue
+Diff on \Carbon\Carbon::diffFiltered() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+         $end = ($dt === null) ? static::now($this->tz) : $dt;
+-        $inverse = false;
++        $inverse = true;
+
+         if ($end < $start) {
+             $start = $end;
+             $end = $this;
+             $inverse = true;
+         }
+
+
+14) \Humbug\Mutator\ConditionalBoundary\LessThan
+Diff on \Carbon\Carbon::diffFiltered() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+
+-        if ($end < $start) {
++        if ($end <= $start) {
+             $start = $end;
+             $end = $this;
+             $inverse = true;
+         }
+
+         $period = new DatePeriod($start, $ci, $end);
+
+
+15) \Humbug\Mutator\ConditionalBoundary\LessThan
+Diff on \Carbon\Carbon::nthOfQuarter() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+
+-        return ($last_month < $dt->month || $year !== $dt->year) ? false : $this->modify($dt);
++        return ($last_month <= $dt->month || $year !== $dt->year) ? false : $this->modify($dt);
+     }
+
+     /**
+      * Modify to the first occurrence of a given day of the week
+      * in the current year. If no dayOfWeek is provided, modify to the
+      * first day of the current year.  Use the supplied consts
+
+
+------
+Errors
+------
+
+
+1) \Humbug\Mutator\ReturnValue\NewObject
+Diff on \Carbon\CarbonInterval::create() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+     {
+-        return new static($years, $months, $weeks, $days, $hours, $minutes, $seconds);
++        new static($years, $months, $weeks, $days, $hours, $minutes, $seconds); return null;
+     }
+
+     /**
+      * Provide static helpers to create instances.  Allows CarbonInterval::years(3).
+      *
+      * Note: This is done using the magic method to allow static and instance methods to
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function add() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CarbonIntervalAddTest.php on line 19
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CarbonIntervalAddTest->testAdd() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+2) \Humbug\Mutator\ReturnValue\NewObject
+Diff on \Carbon\CarbonInterval::__callStatic() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             case 'week':
+-                return new static(null, null, $arg);
++                new static(null, null, $arg); return null;
+
+             case 'days':
+             case 'dayz':
+             case 'day':
+                 return new static(null, null, null, $arg);
+
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function days() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CarbonIntervalSettersTest.php on line 81
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CarbonIntervalSettersTest->testFluentSettersDaysOverwritesWeeks() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+3) \Humbug\Mutator\ReturnValue\NewObject
+Diff on \Carbon\CarbonInterval::__callStatic() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+             case 'day':
+-                return new static(null, null, null, $arg);
++                new static(null, null, null, $arg); return null;
+
+             case 'hours':
+             case 'hour':
+                 return new static(null, null, null, null, $arg);
+
+             case 'minutes':
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function weeks() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CarbonIntervalSettersTest.php on line 87
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CarbonIntervalSettersTest->testFluentSettersWeeksOverwritesDays() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+4) \Humbug\Mutator\ReturnValue\This
+Diff on \Carbon\CarbonInterval::__call() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+
+-        return $this;
++        return null;
+     }
+
+     /**
+      * Get the current interval in a human readable format in the current locale.
+      *
+      * @return string
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function dayz() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CarbonIntervalSettersTest.php on line 70
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CarbonIntervalSettersTest->testFluentSetters() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+5) \Humbug\Mutator\Boolean\LogicalAnd
+Diff on \Carbon\Carbon::__construct() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+         // instance then override as required
+-        if (static::hasTestNow() && (empty($time) || $time === 'now' || static::hasRelativeKeywords($time))) {
++        if (static::hasTestNow() || (empty($time) || $time === 'now' || static::hasRelativeKeywords($time))) {
+             $testInstance = clone static::getTestNow();
+             if (static::hasRelativeKeywords($time)) {
+                 $testInstance->modify($time);
+             }
+
+             //shift the time according to the given time zone
+
+The following output was received on stderr:
+
+PHP Fatal error:  __clone method called on non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php on line 207
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CopyTest->testCopy() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  13. Carbon\Carbon::now() /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CopyTest.php:18
+PHP  14. Carbon\Carbon->__construct() /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:262
+
+
+
+6) \Humbug\Mutator\ReturnValue\NewObject
+Diff on \Carbon\Carbon::now() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+     {
+-        return new static(null, $tz);
++        new static(null, $tz); return null;
+     }
+
+     /**
+      * Create a Carbon instance for today
+      *
+      * @param DateTimeZone|string $tz
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function copy() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CopyTest.php on line 19
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CopyTest->testCopy() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+7) \Humbug\Mutator\ReturnValue\This
+Diff on \Carbon\Carbon::hour() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+
+-        return $this;
++        return null;
+     }
+
+     /**
+      * Set the instance's minute
+      *
+      * @param integer $value
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function minute() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php on line 2209
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. RelativeTest->testSecondsSinceMidnight() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  13. Carbon\Carbon::today() /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/RelativeTest.php:18
+PHP  14. Carbon\Carbon->startOfDay() /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:274
+
+
+
+8) \Humbug\Mutator\ReturnValue\This
+Diff on \Carbon\Carbon::minute() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+
+-        return $this;
++        return null;
+     }
+
+     /**
+      * Set the instance's second
+      *
+      * @param integer $value
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function second() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php on line 2209
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. RelativeTest->testSecondsSinceMidnight() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  13. Carbon\Carbon::today() /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/RelativeTest.php:18
+PHP  14. Carbon\Carbon->startOfDay() /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:274
+
+
+
+9) \Humbug\Mutator\ReturnValue\This
+Diff on \Carbon\Carbon::second() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+
+-        return $this;
++        return null;
+     }
+
+     /**
+      * Set the date and time all together
+      *
+      * @param integer $year
+
+The following output was received on stderr:
+
+PHP Fatal error:  Call to a member function addSeconds() on a non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/RelativeTest.php on line 18
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. RelativeTest->testSecondsSinceMidnight() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+
+
+
+10) \Humbug\Mutator\ConditionalNegation\NotIdentical
+Diff on \Carbon\Carbon::hasTestNow() in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:
+--- Original
++++ New
+@@ @@
+     {
+-        return static::getTestNow() !== null;
++        return static::getTestNow() === null;
+     }
+
+     /**
+      * Determine if there is a relative keyword in the time string, this is to
+      * create dates relative to now for test instances. e.g.: next tuesday
+      *
+
+The following output was received on stderr:
+
+PHP Fatal error:  __clone method called on non-object in /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php on line 207
+PHP Stack trace:
+PHP   1. {main}() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:0
+PHP   2. PHPUnit_TextUI_Command::main() /home/mark/.composer/vendor/phpunit/phpunit/phpunit:47
+PHP   3. PHPUnit_TextUI_Command->run() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:100
+PHP   4. PHPUnit_TextUI_TestRunner->doRun() /home/mark/.composer/vendor/phpunit/phpunit/src/TextUI/Command.php:148
+PHP   5. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/TextUI/TestRunner.php:432
+PHP   6. PHPUnit_Framework_TestSuite->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   7. PHPUnit_Framework_TestCase->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestSuite.php:735
+PHP   8. PHPUnit_Framework_TestResult->run() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:702
+PHP   9. PHPUnit_Framework_TestCase->runBare() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestResult.php:601
+PHP  10. PHPUnit_Framework_TestCase->runTest() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:746
+PHP  11. ReflectionMethod->invokeArgs() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  12. CopyTest->testCopy() /home/mark/Projects/talks/mutating-php/examples/Carbon/vendor/phpunit/phpunit/src/Framework/TestCase.php:881
+PHP  13. Carbon\Carbon::now() /home/mark/Projects/talks/mutating-php/examples/Carbon/tests/CopyTest.php:18
+PHP  14. Carbon\Carbon->__construct() /home/mark/Projects/talks/mutating-php/examples/Carbon/src/Carbon/Carbon.php:262
+
+

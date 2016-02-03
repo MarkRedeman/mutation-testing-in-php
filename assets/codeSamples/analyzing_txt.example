@@ -1,0 +1,14 @@
+2) \Humbug\Mutator\ConditionalBoundary\GreaterThan
+Diff on \Carbon\CarbonInterval::__construct() in /Carbon/src/Carbon/CarbonInterval.php:
+--- Original
++++ New
+@@ @@
+         $specDays += $weeks > 0 ? $weeks * Carbon::DAYS_PER_WEEK : 0;
+-        $specDays += $days > 0 ? $days : 0;
++        $specDays += $days >= 0 ? $days : 0;
+
+         $spec .= ($specDays > 0) ? $specDays.static::PERIOD_DAYS : '';
+
+         if ($hours > 0 || $minutes > 0 || $seconds > 0) {
+             $spec .= static::PERIOD_TIME_PREFIX;
+             $spec .= $hours > 0 ? $hours.static::PERIOD_HOURS : '';

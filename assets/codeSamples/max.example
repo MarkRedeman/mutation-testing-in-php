@@ -1,0 +1,13 @@
+function max($array)
+{
+  $max = $array[0];
+  for ($i = 0; $i < count($array); $i++)
+  {
+    if ($max < $array[$i])
+    {
+      $max = $array[$i];
+    }
+  }
+
+  return $max;
+}
