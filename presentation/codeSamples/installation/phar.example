@@ -1,3 +1,0 @@
-wget https://padraic.github.io/humbug/downloads/humbug.phar
-wget https://padraic.github.io/humbug/downloads/humbug.phar.pubkey
-chmod +x humbug.phar

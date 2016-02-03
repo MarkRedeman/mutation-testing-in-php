@@ -1,6 +1,0 @@
-$vanquishedTotal = $killedCount + $timeoutCount + $errorCount;
-$measurableTotal = $totalCount - $uncoveredCount; // = $vanquishedTotal + $escapedCount
-
-$msi         = round(100 * ($vanquishedTotal / $totalCount));
-$coveredRate = round(100 * ($measurableTotal / $totalCount));
-$cc_msi      = round(100 * ($vanquishedTotal / $measurableTotal));

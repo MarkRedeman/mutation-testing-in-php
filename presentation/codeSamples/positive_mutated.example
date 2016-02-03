@@ -1,5 +1,0 @@
-/** @return bool */
-function isPositive()
-{
-  return $this->amount > 0;
-}

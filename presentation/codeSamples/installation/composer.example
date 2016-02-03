@@ -1,3 +1,0 @@
-composer global require 'humbug/humbug=~1.0@dev'
-# And add ~/.composer/vendor/bin to your path to make it easily executable
-export PATH=~/.composer/vendor/bin:$PATH

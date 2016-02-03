@@ -1,5 +1,0 @@
-function testComparators()
-{
-  $this->assertTrue(isPositive(1));
-  $this->assertFalse(isPositive(-1));
-}
