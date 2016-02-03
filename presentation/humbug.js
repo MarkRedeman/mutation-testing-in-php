@@ -1,12 +1,14 @@
-import React from "react/addons";
-import {Heading, Layout, Text, Appear, List, ListItem, CodePane, Code, Fill, Link,
-  Table, TableRow, TableHeaderItem, TableItem
-} from "../src/spectacle";
-import Slide from "./slide";
-import ShortList from "./shortList";
+import React from "react";
+import {Heading, Layout, Text, Appear, List, ListItem, CodePane, Code, Fill, Link
+} from "spectacle";
 
-export class Introduction extends Slide {
-  contents() {
+import Table from "../src/table.js";
+import TableRow from "../src/table-row.js";
+import TableHeaderItem from "../src/table-header-item.js";
+import TableItem from "../src/table-item.js";
+
+export const Introduction = {
+  slide: () => {
     return (
       <div>
         <Heading size={1} caps textColor="secondary" fit>
@@ -26,11 +28,10 @@ export class Introduction extends Slide {
       </div>
     );
   }
-}
+};
 
-
-export class Installation extends Slide {
-  contents() {
+export const Installation = {
+  slide: () => {
     return (
       <div>
         <Heading size={1} fit>Installation</Heading>
@@ -38,70 +39,70 @@ export class Installation extends Slide {
           <ListItem>
             <strong>Git:</strong>
           </ListItem>
-          <CodePane lang="bash" source={require("raw!./codeSamples/installation/git.example")} margin="20px auto" padding="0 10px 0 0" />
+          <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/git.example")} margin="20px auto" padding="0 10px 0 0" />
 
           <ListItem>
             <strong>Phar:</strong>
           </ListItem>
-          <CodePane lang="bash" source={require("raw!./codeSamples/installation/phar.example")} margin="20px auto" padding="0 10px 0 0" />
+          <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/phar.example")} margin="20px auto" padding="0 10px 0 0" />
 
           <ListItem>
             <strong>Composer:</strong>
           </ListItem>
-          <CodePane lang="bash" source={require("raw!./codeSamples/installation/composer.example")} margin="20px auto" padding="0 10px 0 0" />
+          <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/composer.example")} margin="20px auto" padding="0 10px 0 0" />
         </List>
       </div>
     );
   }
-}
+};
 
-export class Configuration extends Slide {
-  contents() {
+export const Configuration = {
+  slide: () => {
     return (
       <div>
         <Heading size={1}>Configuration</Heading>
-        <CodePane lang="bash" source={require("raw!./codeSamples/configuration.example")} margin="40px auto" padding="0 10px 0 0" />
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/configuration.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
   }
-}
+};
 
-export class Running extends Slide {
-  contents() {
+export const Running = {
+  slide: () => {
     return (
       <div>
         <Heading size={1}>Running Humbug</Heading>
-        <CodePane lang="bash" source={require("raw!./codeSamples/running.example")} margin="40px auto" padding="0 10px 0 0" />
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/running.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
   }
-}
+};
 
-export class Analyzing extends Slide {
-  contents() {
+export const Analyzing = {
+  slide: () => {
     return (
       <div>
         <Heading size={1}>Analyzing Humbug</Heading>
         <Text>humbug.log.txt</Text>
-        <CodePane lang="bash" source={require("raw!./codeSamples/analyzing_txt.example")} margin="40px auto" padding="0 10px 0 0" />
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/analyzing_txt.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
   }
-}
+};
 
-export class AnalyzingJson extends Slide {
-  contents() {
+export const AnalyzingJson = {
+  slide: () => {
     return (
       <div>
         <Text>humbug.log.json</Text>
-        <CodePane lang="bash" source={require("raw!./codeSamples/analyzing_json.example")} margin="40px auto" padding="0 10px 0 0" />
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/analyzing_json.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
   }
-}
+};
 
-export class Options extends Slide {
-  contents() {
+export const Options = {
+  slide: () => {
     return (
       <div>
         <Heading size={1}>Options</Heading>
@@ -128,10 +129,10 @@ export class Options extends Slide {
       </div>
     );
   }
-}
+};
 
-export class Mutators extends Slide {
-  contents() {
+export const Mutators = {
+  slide: () => {
     return (
       <div>
         <Heading margin="0 0 .25em 0" size={1}>Mutators</Heading>
@@ -153,10 +154,10 @@ export class Mutators extends Slide {
       </div>
     );
   }
-}
+};
 
-export class Results extends Slide {
-  contents() {
+export const Results = {
+  slide: () => {
     return (
       <div>
         <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
@@ -270,6 +271,4 @@ export class Results extends Slide {
       </div>
     );
   }
-}
-
-
+};

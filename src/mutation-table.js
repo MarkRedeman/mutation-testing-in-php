@@ -1,38 +1,43 @@
-import React from "react/addons";
-import Base from "./base";
+import React, { PropTypes } from "react";
 import Radium from "radium";
 
-import Table from "./table";
-import TableRow from "./table-row";
-import TableItem from "./table-item";
-import TableHeaderItem from "./table-header-item";
-import Code from "./code";
+import Table from "./table.js";
+import TableRow from "./table-row.js";
+import TableItem from "./table-item.js";
+import TableHeaderItem from "./table-header-item.js";
+import { Code } from "spectacle";
 
-@Radium
-class MutationTable extends Base {
-  render() {
-    return (
-    <Table style={[this.context.styles.components.table, this.getStyles(), this.props.style]} margin="40px 0">
-      <TableRow><TableHeaderItem>Original</TableHeaderItem><TableHeaderItem>Mutated</TableHeaderItem></TableRow>
-      {this.props.mutations.map((mutation) => {
-        return (
-            <TableRow>
-                <TableItem><Code>{mutation.original}</Code></TableItem>
-                <TableItem><Code>{mutation.mutated}</Code></TableItem>
-            </TableRow>
-        );
-      })}
-    </Table>
-    );
-  }
-}
+const MutationTable = (props, context) =>
+  <Table style={[context.styles.components.table, props.style]} margin="40px 0">
+    <TableRow>
+      <TableHeaderItem>Original</TableHeaderItem>
+      <TableHeaderItem>Mutated</TableHeaderItem>
+    </TableRow>
+    {props.mutations.map((mutation, idx) => {
+      return (
+        <TableRow key={idx}>
+          <TableItem>
+            <Code>{mutation.original}</Code>
+          </TableItem>
+          <TableItem>
+            <Code>{mutation.mutated}</Code>
+          </TableItem>
+        </TableRow>
+      );
+    })}
+  </Table>;
 
 MutationTable.propTypes = {
-  mutations: React.PropTypes.required
+  mutations: React.PropTypes.arrayOf(
+    PropTypes.shape({
+      original: PropTypes.string,
+      mutated: PropTypes.string
+    })),
+  style: PropTypes.object
 };
 
 MutationTable.contextTypes = {
-  styles: React.PropTypes.object
+  styles: PropTypes.object
 };
 
-export default MutationTable;
+export default Radium(MutationTable);
