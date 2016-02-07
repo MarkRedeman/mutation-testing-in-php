@@ -5,6 +5,8 @@ import slidify from "../src/slidify.js";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("../assets/prism.css");
+require("../assets/prism.js");
 
 import theme from "./theme";
 
