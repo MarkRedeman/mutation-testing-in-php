@@ -21,7 +21,14 @@ export default () => {
           <Deck transition={["slide"]} transitionDuration={500}>
               {slidify(Introduction.Title)}
               {slidify(Introduction.AboutMe)}
+              {slidify(Introduction.GroningenPHP)}
               {slidify(Introduction.TableOfContents)}
+              {slidify(Introduction.Testing)}
+              {slidify(Introduction.CodeCoverage)}
+              {slidify(Introduction.CodeCoverageNotEnough)}
+              {slidify(Introduction.CodeCoverageBoundaryExample)}
+              {slidify(Introduction.CodeCoverageCommandLogger)}
+              {slidify(Introduction.MutationTestingSolvesTheseProblems)}
               {/*
               Mutations
               */}

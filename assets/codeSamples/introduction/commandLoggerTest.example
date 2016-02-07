@@ -1,0 +1,9 @@
+$internalHandler = $this->prophesize(CommandHandler::class);
+$logger = $this->prophesize(CommandLogger::class);
+
+$handler = new CommandLogger($internalHandler->reveal(), $logger->reveal());
+$handler->handle($command);
+
+// We forgot to check the internal handler!
+$logger->handlingCommand($command)->shouldHaveBeenCalled();
+$logger->handledCommand($command)->shouldHaveBeenCalled();
