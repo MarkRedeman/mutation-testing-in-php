@@ -1,0 +1,5 @@
+function testIsGoldCustomer()
+{
+    $this->assertFalse((new Customer(10))->isGoldCustomer());
+    $this->assertTrue((new Customer(11))->isGoldCustomer());
+}

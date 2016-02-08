@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Heading, List, ListItem, Text, Appear, CodePane, Code,
-  Layout, Fill
+  Layout, Fill, Fit
 } from "spectacle";
 
 import ShortList from "../src/short-list.js";
@@ -21,7 +21,8 @@ export const Introduction = {
         <ShortList items={[
           "A tool to analyze stability of a piece of code",
           "Similar to code coverage, but better",
-          "Can find missing tests"
+          "Can find missing tests",
+          "Reduces redundant code"
         ]}
         />
       </div>
@@ -33,12 +34,10 @@ export const Example = {
   slide: () => {
     return (
       <div>
-        <Heading textSize="2.5rem">A quick example</Heading>
+          <Heading textSize="2.5rem">Original customer class</Heading>
 
-        <CodePane lang="php" source={require("raw!./../assets/codeSamples/goldmember.example")} margin="20px auto" padding="0 10px 0 0" />
-        <Appear>
-          <CodePane lang="php" source={require("raw!./../assets/codeSamples/goldmember_mutated.example")} margin="20px auto" padding="0 10px 0 0" />
-        </Appear>
+          <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMember.example")}  />
+          <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberTest.example")}  />
       </div>
     );
   }
@@ -48,7 +47,24 @@ export const Example2 = {
   slide: () => {
     return (
       <div>
-        <CodePane lang="php" source={require("raw!./../assets/codeSamples/goldmember_tested.example")} margin="20px auto" padding="0 10px 0 0" />
+          <Heading textSize="2.5rem">Mutated customer class</Heading>
+          <Text>
+              The new code is called the <strong>mutant</strong>.
+          </Text>
+          <Layout>
+              <Fit>
+                  <CodePane lang="diff" source={require("raw!./../assets/codeSamples/mutation/goldMemberMutated.example")}  />
+              </Fit>
+              <Fill>
+                  <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberTest.example")} margin="20px 0 20px 20px"/>
+              </Fill>
+          </Layout>
+          <Appear fid="1">
+              <Text>Still passes all assertions!</Text>
+          </Appear>
+          <Appear fid="2">
+              <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberMutatedTest.example")} />
+          </Appear>
       </div>
     );
   }
