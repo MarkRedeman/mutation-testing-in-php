@@ -37,3 +37,7 @@ export const Diagram = {
     );
   }
 };
+
+export const CodeReview = {
+    slide: () => <Heading size={2} textColor="tertiary">Use it while code reviewing</Heading>
+};

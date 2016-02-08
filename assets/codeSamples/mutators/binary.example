@@ -1,0 +1,5 @@
+public function calculateMSI(int $totalKilled = 0, int $totalMutations = 0) : float
+{
+-    return 100 * $totalKilled / $totalMutations;
++    return 100 * $totalKilled * $totalMutations;
+}

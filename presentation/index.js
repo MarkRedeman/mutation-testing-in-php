@@ -37,33 +37,49 @@ export default () => {
               {slidify(Mutation.Introduction)}
               {slidify(Mutation.Example)}
               {slidify(Mutation.Example2)}
-              {slidify(Mutation.Definitions)}
+              {slidify(Mutation.MutationTesting)}
               {slidify(Mutation.Mutation)}
-              {slidify(Mutation.KilledMutant)}
-              {slidify(Mutation.EscapedMutant)}
-              {slidify(Mutation.EquivalentMutant)}
-              {slidify(Mutation.Mutators)}
-              {slidify(Mutation.MathMutators)}
-              {slidify(Mutation.ConditionalMutators)}
-              {slidify(Mutation.EtcMutators)}
-              {slidify(Mutation.Metrics)}
-              {slidify(Mutation.MetricsExample)}
+
+              {/*
+              Mutation operators
+              */}
+              {slidify(Mutation.GenerateMutants)}
+              {slidify(Mutation.MutationOperator)}
+              {slidify(Mutation.BinaryArithmetic)}
+              {slidify(Mutation.BooleanSubstitution)}
+              {slidify(Mutation.ConditionalBoundaries)}
+              {slidify(Mutation.ReturnValues)}
+              {slidify(Mutation.EtcMutations)}
+              {slidify(Mutation.Recap)}
+              {slidify(Mutation.ImplementingOperator)}
+
+              {slidify(Mutation.TestSelection)}
+
+
               {/*
               Humbug
               */}
+              {slidify(Mutation.Metrics)}
+              {slidify(Mutation.MetricsExample)}
+
               {slidify(Humbug.Introduction)}
+              {slidify(Humbug.Demo)}
               {slidify(Humbug.Installation)}
               {slidify(Humbug.Configuration)}
-              {slidify(Humbug.Running)}
+              {slidify(Humbug.Options)}
+              {slidify(Humbug.AnalyzeResults)}
               {slidify(Humbug.Analyzing)}
               {slidify(Humbug.AnalyzingJson)}
-              {slidify(Humbug.Options)}
-              {slidify(Humbug.Mutators)}
               {slidify(Humbug.Results)}
+
+              {slidify(Humbug.PossibleImprovements)}
+              {slidify(Humbug.PotentialMutators)}
               {/*
               Workflow | Conclusion
               */}
               {slidify(Workflow.Diagram)}
+              {slidify(Workflow.CodeReview)}
+
               {slidify(Conclusion.Book)}
               {slidify(Conclusion.OtherLanguages)}
               {slidify(Conclusion.Remarks)}

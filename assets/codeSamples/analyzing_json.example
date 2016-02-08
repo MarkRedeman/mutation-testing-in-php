@@ -1,13 +1,7 @@
 "summary": {
-    "total": 26,
-    "kills": 23,
-    "escapes": 1,
-    "errors": 0,
-    "timeouts": 0,
-    "notests": 2,
-    "covered_score": 96,
-    "combined_score": 88,
-    "mutation_coverage": 92
+    "total": 26,         "kills": 23,          "escapes": 1,
+    "errors": 0,         "timeouts": 0,        "notests": 2,
+    "covered_score": 96, "combined_score": 88, "mutation_coverage": 92
 },
 "escaped": [
 {
@@ -20,13 +14,9 @@
     "tests": [
         "BroadwayDemo\\Basket\\AddProductToBasketTest::it_adds_a_product_to_a_basket",
         "BroadwayDemo\\Basket\\AddProductToBasketTest::multiple_products_can_be_added_to_a_basket",
-        "BroadwayDemo\\Basket\\AddProductToBasketTest::a_product_can_be_added_to_a_basket_multiple_times",
         "BroadwayDemo\\Basket\\CheckoutTest::it_checks_out_a_basket",
         "BroadwayDemo\\Basket\\CheckoutTest::it_cannot_checkout_a_basket_that_has_been_emptied",
-        "BroadwayDemo\\Basket\\CheckoutTest::nothing_happens_when_checking_out_a_basket_for_a_second_time",
         "BroadwayDemo\\Basket\\RemoveProductFromBasketTest::it_removes_a_product_that_was_added",
-        "BroadwayDemo\\Basket\\RemoveProductFromBasketTest::it_does_nothing_when_removing_a_product_that_is_not_in_a_basket",
-        "BroadwayDemo\\Basket\\RemoveProductFromBasketTest::it_only_removes_one_instance_of_a_product"
     ],
     "stderr": "",
     "stdout": "TAP version 13"

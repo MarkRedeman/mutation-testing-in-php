@@ -1,0 +1,2 @@
+- $date = new DateTime($_GET['since']);
++ $date = DateTime::createFromFormat(DateTime::ISO8601, $_GET['since']);

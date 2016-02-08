@@ -30,11 +30,18 @@ export const Introduction = {
   }
 };
 
+export const Demo = {
+    slide: () =>
+        <Heading size={1}>
+            Time for a demo
+        </Heading>
+};
+
 export const Installation = {
   slide: () => {
     return (
       <div>
-        <Heading size={1} fit>Installation</Heading>
+        <Heading size={2}>Installation</Heading>
         <List>
           <ListItem>
             <strong>Git:</strong>
@@ -60,11 +67,33 @@ export const Configuration = {
   slide: () => {
     return (
       <div>
-        <Heading size={1}>Configuration</Heading>
-        <CodePane lang="bash" source={require("raw!../assets/codeSamples/configuration.example")} margin="40px auto" padding="0 10px 0 0" />
+        <Heading size={2}>Configuration</Heading>
+        <Text>Create a configuration file using,</Text>
+        <CodePane lang="bash">
+            humbug configure
+        </CodePane>
+        <Text>giving you a cli interface for configuring:</Text>
+        <List>
+            <Appear><ListItem>What directories to include as mutation targets</ListItem></Appear>
+            <Appear><ListItem>What directoreis to exclude</ListItem></Appear>
+            <Appear><ListItem>Default timeout</ListItem></Appear>
+            <Appear><ListItem>How to store the results</ListItem></Appear>
+        </List>
       </div>
     );
   }
+};
+
+export const AnalyzeResults = {
+    slide: () =>
+        <div>
+            <Heading size={2}>
+                Analyzing results
+            </Heading>
+            <Text>
+                Results can be stored in text format or json format
+            </Text>
+        </div>
 };
 
 export const Running = {
@@ -82,9 +111,10 @@ export const Analyzing = {
   slide: () => {
     return (
       <div>
-        <Heading size={1}>Analyzing Humbug</Heading>
-        <Text>humbug.log.txt</Text>
-        <CodePane lang="bash" source={require("raw!../assets/codeSamples/analyzing_txt.example")} margin="40px auto" padding="0 10px 0 0" />
+        <Heading size={2}>Results in text format</Heading>
+        <Text>Contains a list of <strong>escaped</strong> mutants with their diffs</Text> 
+        <Text>Also contains output send to stderr in case something went</Text>
+        <CodePane lang="diff" source={require("raw!../assets/codeSamples/analyzing_txt.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
   }
@@ -94,7 +124,13 @@ export const AnalyzingJson = {
   slide: () => {
     return (
       <div>
-        <Text>humbug.log.json</Text>
+          <Heading size={2}>
+              Results in json format
+          </Heading>
+          <Text fit>Contains all covered mutants: <strong>escaped</strong>, <strong>errored</strong>, <strong>timeout</strong>, <strong>killed</strong></Text>
+          <Text>
+              Can potentially be used by CI services
+          </Text>
         <CodePane lang="bash" source={require("raw!../assets/codeSamples/analyzing_json.example")} margin="40px auto" padding="0 10px 0 0" />
       </div>
     );
@@ -105,24 +141,32 @@ export const Options = {
   slide: () => {
     return (
       <div>
-        <Heading size={1}>Options</Heading>
+        <Heading size={2}>Comand line options</Heading>
         <List>
           <ListItem textSize="2rem">
-            <strong>Timeout:</strong><br />
-            <Code>humbug --timeout=10</Code>
+            <Text>Timeout:</Text>
+            <CodePane lang="bash">
+                humbug --timeout=10
+            </CodePane>
           </ListItem>
           <Appear>
             <ListItem textSize="2rem">
-              <strong>Restricting files:</strong><br />
-              <Code>humbug --file=PrimeFactor.php</Code><br/>
-              <Code>humbug --file=*Driver.php</Code>
+              <strong>Restricting files:</strong>
+              <CodePane lang="bash">
+                  humbug --file=PrimeFactor.php
+              </CodePane>
+              <CodePane lang="bash">
+                  humbug --file=*Driver.php
+              </CodePane>
             </ListItem>
           </Appear>
           <Appear>
             <ListItem textSize="2rem">
-              <strong>Incremental analysis:</strong><br />
-              <Code>humbug --incremental</Code><br/>
-              Can off significant performance boosts by caching previous results in <Code>/home/padraic/.humbug.</Code>.
+              <strong>Incremental analysis:</strong>
+              <CodePane lang="bash">
+                  humbug --incremental
+              </CodePane>
+              Cache results locally. <strong>Experimental</strong>: can have issues when using inheritance..
             </ListItem>
           </Appear>
         </List>
@@ -271,4 +315,43 @@ export const Results = {
       </div>
     );
   }
+};
+
+export const PossibleImprovements = {
+    slide: () => 
+        <div>
+            <Heading size={2}>
+                Possible Improvements
+            </Heading>
+            <List>
+                <Appear><ListItem>AST based mutation testing, makes writing mutators easier</ListItem></Appear>
+                <Appear><ListItem>Better restriction of files (based on directory or last commit)</ListItem></Appear>
+                <Appear><ListItem>Analyzation tools</ListItem></Appear>
+            </List>
+        </div>
+};
+
+export const PotentialMutators = {
+    slide: () =>
+        <div>
+            <Heading size={2} textColor="tertiary">
+                Potential mutators
+            </Heading>
+            <Appear>
+                <div>
+                    <Text margin="40px 0">Consider a "DateTime" mutator</Text>
+
+                    <CodePane lang="diff" source={require("raw!../assets/codeSamples/mutators/datetime.example")} margin="20px auto" padding="0 10px 0 0" />
+                </div>
+            </Appear>
+            <Appear>
+                <div>
+                    <Text margin="40px 0">Or the "find" mutator</Text>
+                    <CodePane lang="diff" source={require("raw!../assets/codeSamples/mutators/find.example")} margin="20px auto" padding="0 10px 0 0" />
+                </div>
+            </Appear>
+            <Appear>
+                <Text margin="40px 0">Take away: mutations do not have to be <strong>bad</strong>, sometimes you should replace the original source by the mutation</Text>
+            </Appear>
+        </div>
 };

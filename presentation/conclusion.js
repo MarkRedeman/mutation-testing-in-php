@@ -12,6 +12,9 @@ import {
     Quote,
     Slide,
     Spectacle,
+    Layout,
+    Fit,
+    Fill,
     Text
 } from "spectacle";
 
@@ -21,20 +24,21 @@ const images = {
   book: require("../assets/images/book.png"),
   thomas: require("../assets/images/thomas-edison-2.jpg")
 };
-preloader([images.diagram]);
+preloader([images.book, images.thomas]);
 
 export const Book = {
   slide: () => {
     return (
-      <div>
-        <Link href="https://leanpub.com/mutationtesting">
-          <Heading>Read the book</Heading>
-          <Image src={images.book.replace("/", "")}
-           margin="40px auto"
-           height="100%"
-           width="50%"
-         />
-       </Link>
+      <div style={{padding:"0 180px"}}>
+          <Heading size={1} fit>Mutation Testing</Heading>
+          <Heading size={2} fit>Better Code By Making Bugs</Heading>
+          <Link href="https://leanpub.com/mutationtesting">
+              <Image src={images.book.replace("/", "")}
+                     margin="40px auto"
+                     height="100%"
+                     width="50%"
+              />
+          </Link>
       </div>
     );
   }
@@ -44,22 +48,22 @@ export const OtherLanguages = {
   slide: () => {
     return (
         <div>
-            <Heading>Other tools</Heading>
+            <Heading size={2} fit textColor="tertiary">Tools for other languages</Heading>
             <List>
                 <ListItem>
-                    Ruby: <Link textColor="secondary" href="https://github.com/mbj/mutant">Mutant</Link>
+                    Ruby: <Link textColor="secondary" href="https://github.com/mbj/mutant">Mutant</Link> (https://github.com/mbj/mutant)
                 </ListItem>
                 <ListItem>
-                    Java: <Link textColor="secondary" href="http://pitest.org/">Pitest</Link>
+                    Java: <Link textColor="secondary" href="http://pitest.org/">Pitest</Link> (http://pitest.org/)
                 </ListItem>
                 <ListItem>
-                    C#: <Link textColor="secondary" href="http://ninjaturtles.codeplex.com/">Ninjaturtles</Link>
+                    C#: <Link textColor="secondary" href="http://ninjaturtles.codeplex.com/">Ninjaturtles</Link> (http://ninjaturtles.codeplex.com/)
                 </ListItem>
                 <ListItem>
-                    Python: <Link textColor="secondary" href="https://pypi.python.org/pypi/MutPy/0.4.0/">MutPy</Link> <Link textColor="seconday" href="https://github.com/sixty-north/cosmic-ray" >Cosmic Ray</Link>
+                    Python: <Link textColor="secondary" href="https://github.com/sixty-north/cosmic-ray" >Cosmic Ray</Link> (https://github.com/sixty-north/cosmic-ray)
                 </ListItem>
                 <ListItem>
-                    Matlab: <Link textColor="secondary" href="http://matmute.sourceforge.net/">MatMute</Link>
+                    Matlab: <Link textColor="secondary" href="http://matmute.sourceforge.net/">MatMute</Link> (http://matmute.sourceforge.net/)
                 </ListItem>
             </List>
         </div>
@@ -85,7 +89,7 @@ export const Remarks = {
 export const Thomas = {
     bgImage: images.thomas.replace("/", ""),
     bgDarken: "0.75",
-    slide: () => 
+    slide: () =>
         <BlockQuote>
             <Quote>I have not failed. I've just found 10,000 ways that won't work</Quote>
             <Cite>Thomas Edison</Cite>

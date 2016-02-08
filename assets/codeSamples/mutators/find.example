@@ -1,0 +1,2 @@
+- $user = User::find($id);
++ $user = User::findOrFail($id);
