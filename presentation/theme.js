@@ -1,7 +1,6 @@
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
-
 let theme = createTheme({
   primary: "rgb(9, 196, 127)"
 });
@@ -39,7 +38,7 @@ theme.screen = Object.assign(theme.screen, {
       background: colors.primary,
       fontFamily: fonts.primary,
       fontWeight: "normal",
-      fontSize: "1em",
+      fontSize: "2.25em",
       color: colors.secondary,
       overflow: "hidden"
     },
@@ -158,12 +157,13 @@ theme.screen = Object.assign(theme.screen, {
     },
     codePane: {
       pre: {
-        margin: "auto",
+        margin: "20px auto",
         fontSize: "1rem",
         fontWeight: "normal",
         fontFamily: fonts.tertiary,
         minWidth: "100%",
-        maxWidth: 800
+        maxWidth: 800,
+        padding: "0 5px 0 0"
       },
       code: {
         textAlign: "left",
