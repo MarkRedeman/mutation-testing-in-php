@@ -116,7 +116,8 @@ For me one of the main benefits is the ability to change code while being confid
 };
 
 export const CodeCoverage = {
-    notes: ``,
+    notes: `Code coverage comes in different flavors.
+You have line coverage, function coverage, class coverage, opcode coverage and so on.`,
     slide: () => <div>
         <Heading size={2}>Code Coverage</Heading>
         <Text>
@@ -143,7 +144,7 @@ export const CodeCoverageNotEnough = {
 };
 
 export const CodeCoverageBoundaryExample = {
-    notes: ``,
+    notes: `Here we see that the test covers every line of our code, but the second statement is never used. Hence in this case 100% code coverage k`,
     slide: () => <div>
         <Heading size={3}>
             100% code coverage
@@ -190,6 +191,10 @@ export const CodeCoverageCommandLogger = {
 }
 
 export const MutationTestingSolvesTheseProblems = {
-    notes: `Mutation testing solves the problems we get from code coverage.`,
+    notes: `
+Mutation testing solves the problems we get from code coverage.<br />
+But before I tell you a description of (automated) mutation testing, lets see how we can change (mutate) the follwing code without having a failing test.
+`,
+
     slide: () => <Text>Using mutation testing, we can solve these problems</Text>
 }
