@@ -86,6 +86,15 @@ export const Remarks = {
   }
 };
 
+export const Thanks = {
+  slide: () =>
+    <div>
+      <Heading size={2} fit>Thank you Markus Schrip</Heading>
+      <Text>Maintainer of Mutant, the ruby mutation testing tool</Text>
+      <Text>Gave me very useful feedback and insights</Text>
+    </div>
+};
+
 export const Thomas = {
     bgImage: images.thomas.replace("/", ""),
     bgDarken: "0.75",

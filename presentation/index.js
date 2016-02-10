@@ -83,6 +83,7 @@ export default () => {
               {slidify(Conclusion.Book)}
               {slidify(Conclusion.OtherLanguages)}
               {slidify(Conclusion.Remarks)}
+              {slidify(Conclusion.Thanks)}
               {slidify(Conclusion.Thomas)}
               {slidify(Conclusion.End)}
           </Deck>
