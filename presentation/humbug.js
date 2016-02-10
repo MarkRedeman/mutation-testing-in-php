@@ -144,7 +144,7 @@ export const Options = {
         <Heading size={2}>Comand line options</Heading>
         <List>
           <ListItem textSize="2rem">
-            <Text>Timeout:</Text>
+            <Text><strong>Timeout:</strong></Text>
             <CodePane lang="bash">
                 humbug --timeout=10
             </CodePane>

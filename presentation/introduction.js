@@ -108,7 +108,8 @@ export const TableOfContents = {
 
 export const Testing = {
     notes: `We all probably know about the advantageous of using an autonomous testing tool.
-For me one of the main benefits is the ability to change code while being confident that I will be notified inmediadly when breaking something.`,
+For me one of the main benefits is the ability to change code while being confident that I will be notified inmediadly when breaking something.
+<ul><li>Instant feedback</li></ul>`,
     slide: () => <div>
         <Heading size={2}>Testing</Heading>
         <Text>Makes us more comfortable with changing code</Text>

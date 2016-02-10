@@ -20,7 +20,7 @@ import * as Conclusion from "./conclusion";
 export default () => {
   return (
       <Spectacle theme={theme}>
-          <Deck transition={["slide"]} transitionDuration={500}>
+          <Deck transition={["slide"]} transitionDuration={350}>
               {slidify(Introduction.Title)}
               {slidify(Introduction.AboutMe)}
               {slidify(Introduction.GroningenPHP)}
