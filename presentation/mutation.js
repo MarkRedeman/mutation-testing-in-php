@@ -12,6 +12,10 @@ import TableItem from "../src/table-item.js";
 import MutationTable from "../src/mutation-table.js";
 
 export const Introduction = {
+  notes: `
+So what is mutation testing and how can it help imrpove our test suite and our code?<br/>
+I will introduce mutation testing using an example.
+`,
   slide: () => {
     return (
       <div>
@@ -31,6 +35,14 @@ export const Introduction = {
 };
 
 export const Example = {
+  notes: `
+Consider a customer class that has a method 'goldMember'.
+This method indicates whether the customer is allowed to get some discounts.
+The buisinuess has told us that anyone with more than 10 orders is a gold customer, so we implement this using the given function.
+We are of course using Test Driven Development, so we first wrote a test checking that someone without orders is not a gold customer and someone with 11 orders is a gold customer.
+But this code isn't stable.
+We can change the code without having a failing test.
+`,
   slide: () => {
     return (
       <div>
@@ -44,7 +56,7 @@ export const Example = {
 };
 
 export const Example2 = {
-    note: `
+    notes: `
 So we have now seen that when we change, or mutate, a piece of code then we can still get passing tests.
 We can use this knowledge for improving our tests.
 `,
@@ -69,7 +81,7 @@ We can use this knowledge for improving our tests.
               <Text fit>Still passes all assertions! (The mutant is <strong>alive</strong> / has <strong>escaped</strong>)</Text>
           </Appear>
           <Appear fid="2">
-              <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberMutatedTest.example")} />
+              <CodePane lang="diff" source={require("raw!./../assets/codeSamples/mutation/goldMemberMutatedTest.example")} />
           </Appear>
           <Appear fid="3" >
               <Text>The new test has <strong>killed</strong> the mutant</Text>
@@ -80,8 +92,14 @@ We can use this knowledge for improving our tests.
 };
 
 export const MutationTesting = {
-    note: `
-When we automate this process we get Mutation testing
+    notes: `
+When we automate this process we get Mutation testing.
+When doing mutation testing we first run the test suite.
+Once all tests are passing we generate mutatnts based on a set op mutation operators.
+(Note: in the slides I specified that we do this for each file, but an implementation of mutation testing does not need to depend on the filesystem, instead it could use the AST or byte / opcode)
+Next for each generated mutant we run the test suite.
+If at least one test fails, the mutant is said to have been killed.
+Next we analyze the results.
 `,
     slide: () =>
         <div>
@@ -96,7 +114,11 @@ When we automate this process we get Mutation testing
 };
 
 export const Mutation = {
-    notes: `A mutation is a piece of code that has been mutated by a mutation operator`,
+    notes: `
+A mutation is a piece of code that has been mutated by a mutation operator.
+When at least one test fails on the mutated code we say that it has been killed, otherwise it has escaped.
+Additionally Humbug alos categorizes mutants as uncovered, timeout and fatal errors.
+`,
     slide: () =>
         <div>
             <Heading fit size={1} textColor="secondary">Mutation</Heading>
@@ -185,8 +207,23 @@ export const EquivalentMutant = {
   slide: () => {
     return (
       <div>
-        <Heading>Equivalent Mutant</Heading>
-        <CodePane lang="php" source={require("raw!./../assets/codeSamples/sum_is_zero.example")} margin="20px auto" padding="0 10px 0 0" />
+        <Heading size={2}>Equivalent Mutant</Heading>
+        <CodePane
+          lang="diff"
+          source={require("raw!./../assets/codeSamples/mutation/equivalent.example")}
+          margin="20px auto"
+          padding="0 10px 0 0"
+        />
+
+        <Appear>
+          <div>
+            <Text><strong>Not a problem</strong>: refactor and use the std library</Text>
+            <CodePane
+              lang="php"
+              source={require("raw!./../assets/codeSamples/mutation/equivalentSolution.example")}
+            />
+          </div>
+        </Appear>
       </div>
     );
   }
@@ -323,7 +360,7 @@ export const EtcMutations = {
                 Other types of operators
             </Heading>
             <List>
-                <ListItem><strong>Negated Conditionals</strong><br /> negates conditional, i.e. <Code>!===</Code> becomes <Code>===</Code></ListItem>
+                <ListItem><strong>Negated Conditionals</strong><br /> negates conditional, i.e. <Code>!==</Code> becomes <Code>===</Code></ListItem>
                 <ListItem><strong>Increments</strong><br /> interchanges <Code>++</Code> and <Code>--</Code></ListItem>
                 <ListItem><strong>Literal Numbers</strong><br /> changes literal int and float values (useful for checking boundaries)</ListItem>
             </List>
