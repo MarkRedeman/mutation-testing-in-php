@@ -10,6 +10,7 @@ import TableRow from "../src/table-row.js";
 import TableHeaderItem from "../src/table-header-item.js";
 import TableItem from "../src/table-item.js";
 import MutationTable from "../src/mutation-table.js";
+import Math from "../src/math.js";
 
 export const Introduction = {
   notes: `
@@ -107,7 +108,7 @@ Next we analyze the results.
             <List style={{ listStyleType: "decimal" }}>
                 <ListItem>Run the test suite, if something fails: stop and fix the code</ListItem>
                 <ListItem>For each file, find and create all possible mutations</ListItem>
-                <ListItem>For each mutant, run the testsutie on the mutated code</ListItem>
+                <ListItem>For each mutant, run the test suite on the mutated code</ListItem>
                 <ListItem>Analyze the results</ListItem>
             </List>
         </div>
@@ -376,7 +377,7 @@ export const Recap = {
             <List style={{ listStyleType: "decimal" }}>
                 <ListItem>Run the test suite, if something fails: stop and fix the code</ListItem>
                 <ListItem>For each file, find and create all possible mutations</ListItem>
-                <ListItem>For each mutant, run the testsutie on the mutated code</ListItem>
+                <ListItem>For each mutant, run the test suite on the mutated code</ListItem>
                 <ListItem>Analyze the results</ListItem>
             </List>
         </div>
@@ -478,42 +479,70 @@ export const MetricsExample = {
               </Appear>
           </Fill>
         </Layout>
+      </div>
+    );
+  }
+};
+
+export const MetricsExampleMSI = {
+  slide: () => {
+    return (
+      <div>
+        <Heading bgColor="tertiary" textColor="secondary" padding="10px" margin="0 0 20px" size={3}>Mutation Score Indicator</Heading>
+        <Text margin="30px 0" fit>Out of 653 <strong>mutants</strong>, 284 mutants were <strong>killed</strong>.</Text>
         <Appear fid="4">
             <div>
-                <Text textAlign="left" textSize="2rem"><strong>Mutation Score Indicator (MSI):</strong> 47%</Text>
-                <CodePane lang="php">
-                    $msi = round(100 * $killedMutants / $toalMutants);
-                </CodePane>
-                {/* $vanquishedTotal = $killedCount + $timeoutCount + $errorCount;
-                $measurableTotal = $totalCount - $uncoveredCount; // = $vanquishedTotal + $escapedCount
-
-                $msi         = round(100 * ($vanquishedTotal / $totalCount));
-                $coveredRate = round(100 * ($measurableTotal / $totalCount));
-                $cc_msi      = round(100 * ($vanquishedTotal / $measurableTotal)); */}
+              <Math math="\text{msi} = \frac{\text{killed mutants}}{\text{total mutants}} = \frac{284}{653} = 0.47." />
             </div>
-        </Appear>
-        <Appear fid="5" >
-            <div>
-                <Text textAlign="left" textSize="2rem"><strong>Mutation Code Coverage:</strong> 67%</Text>
-                <CodePane lang="php">
-                    $mcc = round(100 * ($totalCount - $uncoveredCount) / $totalCount);
-                </CodePane>
-            </div>
-        </Appear>
-        <Appear fid="6">
-            <div>
-                <Text textAlign="left" textSize="2rem"><strong>Covered Code MSI</strong> 70%</Text>
-                <CodePane lang="php" >
-                    $cc_msi = round(100 * $killedCount / ($totalCount - $uncoveredCount));
-                </CodePane>
-            </div>
-        </Appear>
-        <Appear fid="7">
-          <Text>
-            <strong>47%</strong> of all mutations were detected versus <strong>65%</strong> line coverage.
-          </Text>
         </Appear>
       </div>
     );
   }
 };
+
+export const MetricsExampleMCC = {
+  slide: () => {
+    return (
+      <div>
+        <Heading bgColor="tertiary" textColor="secondary" padding="10px" margin="0 0 20px" size={3}>Mutation Code Coverage</Heading>
+        <Text margin="30px 0" fit>Out of 653 <strong>mutants</strong>, 218 mutants were <strong>not covered</strong>.</Text>
+        <Appear fid="4">
+            <div>
+              <Math math="\text{mcc} = \frac{\text{covered mutants}}{\text{total mutants}} = \frac{653 - 218}{653} = 0.67." />
+            </div>
+        </Appear>
+      </div>
+    );
+  }
+};
+
+export const MetricsExampleCCMSI = {
+  slide: () => {
+    return (
+      <div>
+        <Heading bgColor="tertiary" textColor="secondary" padding="10px" margin="0 0 20px" size={3}>Covered Code MSI</Heading>
+        <Text margin="30px 0" fit>Out of 653 <strong>mutants</strong>, 435 mutants were <strong>covered</strong> of which 284 were <strong>killed</strong>.</Text>
+        <Appear fid="4">
+            <div>
+              <Math math="\text{cc msi} = \frac{\text{killed mutants}}{\text{covered mutants}} = \frac{284}{435} = 0.70." />
+            </div>
+        </Appear>
+      </div>
+    );
+  }
+};
+
+export const MetricsExampleSummary = {
+  slide: () =>
+    <div>
+      <Heading bgColor="tertiary" textColor="secondary" padding="10px" margin="0 0 20px" size={2}>A summary</Heading>
+      <Text>
+        A project with <strong>361 tests</strong> and <strong>65% code coverage</strong> <strong>653 mutants</strong> were generated of which only 47% were <strong>killed</strong> and only 67% were covered.
+      </Text>
+      <List>
+        <ListItem><strong>Mutation Score Indicator</strong>: 47%</ListItem>
+        <ListItem><strong>Mutation Code Coverage</strong>: 67%</ListItem>
+        <ListItem><strong>Covered Code MSI</strong>: 70%</ListItem>
+      </List>
+    </div>
+}

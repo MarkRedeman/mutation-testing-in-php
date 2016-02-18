@@ -62,6 +62,10 @@ export default () => {
               */}
               {slidify(Mutation.Metrics)}
               {slidify(Mutation.MetricsExample)}
+              {slidify(Mutation.MetricsExampleMSI)}
+              {slidify(Mutation.MetricsExampleMCC)}
+              {slidify(Mutation.MetricsExampleCCMSI)}
+              {slidify(Mutation.MetricsExampleSummary)}
 
               {slidify(Humbug.Introduction)}
               {slidify(Humbug.Demo)}
