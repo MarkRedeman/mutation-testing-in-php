@@ -50,7 +50,9 @@ We can change the code without having a failing test.
           <Heading textSize="2.5rem">Original customer class</Heading>
 
           <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMember.example")}  />
-          <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberTest.example")}  />
+          <Appear>
+            <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/goldMemberTest.example")}  />
+          </Appear>
       </div>
     );
   }

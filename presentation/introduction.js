@@ -158,12 +158,14 @@ export const CodeCoverageBoundaryExample = {
             padding="0 10px 0 0"
         />
 
-        <CodePane
+        <Appear>
+          <CodePane
             lang="php"
             source={require("raw!./../assets/codeSamples/introduction/isSuccessfulTest.example")}
             margin="20px auto"
             padding="0 10px 0 0"
-        />
+          />
+        </Appear>
 
         <Appear>
             <Text>But the second condition is never called!</Text>
@@ -182,12 +184,14 @@ export const CodeCoverageCommandLogger = {
             padding="0 10px 0 0"
         />
 
-        <CodePane
+        <Appear>
+          <CodePane
             lang="php"
             source={require("raw!./../assets/codeSamples/introduction/commandLoggerTest.example")}
             margin="20px auto"
             padding="0 10px 0 0"
-        />
+          />
+        </Appear>
     </div>
 }
 
