@@ -138,10 +138,28 @@ Additionally Humbug alos categorizes mutants as uncovered, timeout and fatal err
                 </Appear>
             </List>
             <Appear>
-                <Text margin="1em">(Humbug also uses the concept of <strong>uncovered</strong>, <strong>timeout</strong> and <strong>fatal error</strong> mutants)</Text>
+                <Text margin="1em">(Humbug also uses the concept of <strong>timeout</strong>, <strong>fatal error</strong> and <strong>uncovered</strong>  mutants)</Text>
             </Appear>
         </div>
 };
+
+export const UncoveredMutantExample = {
+  slide: () => <div>
+        <Heading size={2}>Uncovered Mutant</Heading>
+        <CodePane
+          lang="diff"
+          source={require("raw!./../assets/codeSamples/mutation/uncovered.example")}
+          margin="20px auto"
+          padding="0 10px 0 0"
+        />
+          <div>
+            <CodePane
+              lang="php"
+              source={require("raw!./../assets/codeSamples/mutation/uncoveredTest.example")}
+            />
+          </div>
+  </div>
+}
 
 export const GenerateMutants = {
     slide: () => <Text>But how do we generate mutants?</Text>

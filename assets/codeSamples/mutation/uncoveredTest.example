@@ -1,0 +1,5 @@
+public function test_a_location_can_be_unspecified() {
+    $activity = Activity::plan(...);
+
+    $this->assertEquals($activity->location(), Location::unspecified());
+}

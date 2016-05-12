@@ -39,6 +39,7 @@ export default () => {
               {slidify(Mutation.Example2)}
               {slidify(Mutation.MutationTesting)}
               {slidify(Mutation.Mutation)}
+              {slidify(Mutation.UncoveredMutantExample)}
               {slidify(Mutation.EquivalentMutant)}
 
               {/*

@@ -1,0 +1,8 @@
+public function location() {
+    if (isset($this->location)) {
+-        return $this->location;
++        $this->location; return;
+    }
+
+    return Location::unspecified();
+}
