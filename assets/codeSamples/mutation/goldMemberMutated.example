@@ -1,5 +1,4 @@
-public function isGoldCustomer()
-{
+public function isGoldCustomer() {
 -    return $this->orders > 10;
 +    return $this->orders >= 10;
 }

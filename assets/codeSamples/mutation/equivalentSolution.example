@@ -1,4 +1,3 @@
-private function sumIsZero(array $values)
-{
+private function sumIsZero(array $values) {
     return array_sum($values) === 0;
 }

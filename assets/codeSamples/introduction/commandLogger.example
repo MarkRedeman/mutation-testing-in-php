@@ -1,5 +1,4 @@
-public function handle(Command $command)
-{
+public function handle(Command $command) {
     $this->logger->handlingCommand($command);
     $this->handler->handle($command);
     $this->logger->handedCommand($command);

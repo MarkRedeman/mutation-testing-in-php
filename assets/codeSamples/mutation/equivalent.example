@@ -1,5 +1,4 @@
-private function sumIsZero(array $values)
-{
+private function sumIsZero(array $values) {
     $sum = 0;
 
     foreach ($values as $value) {
