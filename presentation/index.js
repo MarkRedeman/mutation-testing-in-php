@@ -69,7 +69,11 @@ export default () => {
 
               {slidify(Humbug.Introduction)}
               {slidify(Humbug.Demo)}
-              {slidify(Humbug.Installation)}
+              {slidify(Humbug.InstallationOverview)}
+              {slidify(Humbug.InstallationGit)}
+              {slidify(Humbug.InstallationPhar)}
+              {slidify(Humbug.InstallationComposer)}
+              {slidify(Humbug.InstallationComposerLocal)}
               {slidify(Humbug.Configuration)}
               {slidify(Humbug.Options)}
               {slidify(Humbug.AnalyzeResults)}

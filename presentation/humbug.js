@@ -31,10 +31,76 @@ export const Introduction = {
 };
 
 export const Demo = {
-    slide: () =>
+  slide: () =>
         <Heading size={1}>
             Time for a demo
         </Heading>
+};
+
+export const InstallationOverview = {
+  slide: () => {
+    return (
+      <div>
+        <Heading size={2}>Installation</Heading>
+        <List>
+         <Appear><ListItem>Globally using Git</ListItem></Appear>
+      <Appear>
+      <ListItem>Globally using phar files</ListItem>
+      </Appear>
+      <Appear>
+      <ListItem>Globally using composer</ListItem>
+      </Appear>
+      <Appear>
+      <ListItem>Locally per project using composer</ListItem>
+      </Appear>
+      </List>
+      </div>
+    );
+  }
+};
+
+export const InstallationGit = {
+  slide: () => {
+    return (
+      <div>
+        <Heading size={4}>Installing globally using Git</Heading>
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/git.example")} margin="20px auto" padding="0 10px 0 0" />
+      </div>
+    );
+  }
+};
+
+export const InstallationPhar = {
+  slide: () => {
+    return (
+      <div>
+        <Heading size={4}>Installing globally using Phar</Heading>
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/phar.example")} margin="20px auto" padding="0 10px 0 0" />
+      </div>
+    );
+  }
+};
+
+export const InstallationComposer = {
+  slide: () => {
+    return (
+      <div>
+        <Heading size={4}>Installing globally using composer</Heading>
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/composer.example")} margin="20px auto" padding="0 10px 0 0" />
+      </div>
+    );
+  }
+};
+
+export const InstallationComposerLocal = {
+  slide: () => {
+    return (
+      <div>
+        <Heading size={4}>Installing locally using composer</Heading>
+        <CodePane lang="bash" source={require("raw!../assets/codeSamples/installation/composer_local.example")} margin="20px auto" padding="0 10px 0 0" />
+      </div>
+    );
+  }
 };
 
 export const Installation = {
