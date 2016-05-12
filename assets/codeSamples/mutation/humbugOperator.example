@@ -1,0 +1,17 @@
+class Multiplication extends MutatorAbstract {
+
+    /**
+     * Replace (*) with (/)
+     */
+    public static function getMutation(array &$tokens, $index) {
+        $tokens[$index] = '/';
+    }
+
+    public static function mutates(array &$tokens, $index) {
+        $t = $tokens[$index];
+        if (!is_array($t) && $t == '*') {
+            return true;
+        }
+        return false;
+    }
+}

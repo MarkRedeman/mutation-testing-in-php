@@ -53,9 +53,6 @@ export default () => {
               {slidify(Mutation.ReturnValues)}
               {slidify(Mutation.EtcMutations)}
               {slidify(Mutation.Recap)}
-              {slidify(Mutation.ImplementingOperator)}
-
-              {slidify(Mutation.TestSelection)}
 
 
               {/*
@@ -67,6 +64,12 @@ export default () => {
               {slidify(Mutation.MetricsExampleMCC)}
               {slidify(Mutation.MetricsExampleCCMSI)}
               {slidify(Mutation.MetricsExampleSummary)}
+
+              {/*                 */}
+              {slidify(Mutation.HowDoesItWork)}
+              {slidify(Mutation.ImplementingOperator)}
+              {slidify(Mutation.HumbugOperatorExample)}
+              {slidify(Mutation.TestSelection)}
 
               {slidify(Humbug.Introduction)}
               {slidify(Humbug.Demo)}

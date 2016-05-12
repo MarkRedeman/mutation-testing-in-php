@@ -15,8 +15,13 @@ import Math from "../src/math.js";
 export const Introduction = {
   notes: `
 So what is mutation testing and how can it help imrpove our test suite and our code?<br/>
+Essentially it is a tool that can effectively meassure the stability of your software.
+It is like code coverage in the way that once you have some unit tests you can use mutation testing (and code coverage) to get a better idea of the effectiveness of your test suite.
+You can use it to find missing specification and edge cases that have not yet been tested.
+It is also a tool that can be used to reduce the amount of redundant code, that is by knowing about mutation testing you will be more aware of unstable code.
 I will introduce mutation testing using an example.
 `,
+  keywords: ['effectively measure stability', 'code coverage', 'missing specification', 'edge cases' ,'aware'],
   slide: () => {
     return (
       <div>
@@ -403,6 +408,27 @@ export const Recap = {
         </div>
 };
 
+export const HowDoesItWork = {
+  notes: `
+So we now know about the fundamentals of mutation testing.<br>
+ We've seen what it means to have mutations and we know about the different types of mutations.<br>
+                We've also seen how we can analyze the results of mutation testing by using some made up metrics.<br>
+                Next I will talk about some the implementation details of a mutation testing tool.
+
+`,
+  slide: () => {
+    return (
+      <div>
+      <Heading fit>Implementing a mutation testing tool</Heading>
+      <List>
+        <Appear><ListItem>How do we implement an operator?</ListItem></Appear>
+        <Appear><ListItem>How can we make it faster?</ListItem></Appear>
+      </List>
+      </div>
+    );
+  }
+};
+
 export const ImplementingOperator = {
     slide: () =>
         <div>
@@ -428,6 +454,17 @@ export const ImplementingOperator = {
         </div>
 };
 
+export const HumbugOperatorExample = {
+  slide: () =>
+    <div>
+    <Heading size={4}>
+    Example from Humbug
+    </Heading>
+    <CodePane lang="php" source={require("raw!./../assets/codeSamples/mutation/humbugOperator.example")}  />
+    </div>
+
+}
+
 export const TestSelection = {
     slide: () =>
         <div>
@@ -446,6 +483,9 @@ export const TestSelection = {
             </Appear>
             <Appear fid="4">
                 <ListItem>Stop testing a mutation as soon as at least 1 test fails</ListItem>
+            </Appear>
+            <Appear fid="5">
+                <ListItem>Sort the test on their execution time</ListItem>
             </Appear>
             </List>
         </div>
@@ -557,7 +597,7 @@ export const MetricsExampleSummary = {
     <div>
       <Heading bgColor="tertiary" textColor="secondary" padding="10px" margin="0 0 20px" size={2}>A summary</Heading>
       <Text>
-        A project with <strong>361 tests</strong> and <strong>65% code coverage</strong> <strong>653 mutants</strong> were generated of which only 47% were <strong>killed</strong> and only 67% were covered.
+        A project with 361 tests and <strong>65%</strong> code coverage 653 mutants were generated of which only <strong>47%</strong> were killed and only <strong>67%</strong> were covered.
       </Text>
       <List>
         <ListItem><strong>Mutation Score Indicator</strong>: 47%</ListItem>
