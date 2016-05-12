@@ -1,4 +1,4 @@
 public function isNotAServerError()
 {
-    return $this->statusCoce() < 500 || $this->statusCode() >= 600;
+    return $this->statusCode() < 500 || $this->statusCode() >= 600;
 }
